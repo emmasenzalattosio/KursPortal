@@ -1,0 +1,28 @@
+﻿@model List<Kurs>
+
+<div class="row g-4">
+    @foreach (var k in Model)
+    {
+        <div class="col-sm-6 col-lg-4">
+            <div class="card h-100 text-center border-primary shadow-sm">
+
+                <div class="card-header">
+                    Dozent: @k.Dozent
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">@k.KursName</h5>
+                    <p class="card-text">Dauer: @k.DauerInTagen Tage</p>
+                    <a asp-controller="Kurs" asp-action="Detail" asp-route-id="@k.ID" class="btn btn-primary">Details</a>
+                </div>
+
+                <div class="card-footer text-body-secondary">
+                    Teilnehmeranzahl: @k.AnzahlTeilnehmer
+                </div>
+
+
+            </div>
+        </div>
+    }
+    <a type="button" class="btn btn-secondary m4" asp-controller="Home" asp-action="Index">Get back to HomePage</a>
+</div>

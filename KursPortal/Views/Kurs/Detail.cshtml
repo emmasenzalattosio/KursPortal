@@ -1,0 +1,26 @@
+﻿@model Kurs
+
+<h1>@Model.KursName</h1>
+
+<p>Dozent @Model.Dozent</p>
+<p>Anzahl Teilnehmer @Model.AnzahlTeilnehmer</p>
+
+<p>Duaer @Model.DauerInTagen</p>
+
+<br />
+
+<h2>Was dich erwartet</h2>
+
+<p>@Model.Inhalt</p>
+
+<p>Du lernst:</p>
+<ul>
+    <li>Klassen & Objekte</li>
+    <li>Vererbung & Polymorphie</li>
+    <li>Interfaces</li>
+    <li>Exception Handling</li>
+    <li>saubere Code-Strukturen</li>
+</ul>
+
+<a type="button" class="btn btn-secondary m4" asp-controller="Kurs" asp-action="Index">Get back the Courses</a>
+
