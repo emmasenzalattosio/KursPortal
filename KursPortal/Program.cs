@@ -1,3 +1,6 @@
+using KursPortal.Models;
+using Microsoft.EntityFrameworkCore; 
+
 namespace KursPortal
 {
     public class Program
@@ -9,16 +12,20 @@ namespace KursPortal
             //MVC Activation
             builder.Services.AddControllersWithViews();
 
-
+            //DatenBank Context registration
+            builder.Services.AddDbContext<KursPortalDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("KursDB")));
+            
             var app = builder.Build();
 
-            //app.MapGet("/", () => "Hasan is gay and eats Möhren!!");
+
+
 
             app.MapControllerRoute(
                 name: "default", 
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.UseStaticFiles();
 
+            EnsureDatabse.Migrate(app);
 
             app.UseStaticFiles();   // <-- add this
             app.UseRouting();

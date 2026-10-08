@@ -13,14 +13,21 @@
 
 <p>@Model.Inhalt</p>
 
+<h3>Beschreibung</h3>
+
+<p>@Model.Beschreibung</p>
+
 <p>Du lernst:</p>
-<ul>
-    <li>Klassen & Objekte</li>
-    <li>Vererbung & Polymorphie</li>
-    <li>Interfaces</li>
-    <li>Exception Handling</li>
-    <li>saubere Code-Strukturen</li>
-</ul>
+
+
+
+<div class="d-flex gap-2 align-items-center">
+<a asp-controller="Kurs" asp-action="Edit" asp-route-id=@Model.ID class="btn btn-warning">Bearbeiten</a>
+
+<form asp-controller="Kurs" asp-action="Entfern" asp-route-id=@Model.ID method="post" onsubmit="return confirm('Möchtest du diesen Kurs wirklich löschen?');">
+<button type="submit" class="btn btn-danger">Löschen</button> 
+</form>
+
 
 <a type="button" class="btn btn-secondary m4" asp-controller="Kurs" asp-action="Index">Get back the Courses</a>
-
+</div>

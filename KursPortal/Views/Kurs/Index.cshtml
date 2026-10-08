@@ -1,5 +1,8 @@
 ﻿@model List<Kurs>
 
+
+<a asp-controller="Kurs" asp-action="Create" class="btn btn-info mb-3">Neuen Kurs erstellen</a>
+
 <div class="row g-4">
     @foreach (var k in Model)
     {

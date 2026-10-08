@@ -1,0 +1,38 @@
+﻿@model Kurs
+
+<form asp-controller="Kurs" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="KursName" class="form-label"></label>
+        <input asp-for="KursName" class="form-control">
+    </div>
+
+    <div>
+        <label asp-for="Dozent" class="form-label"></label>
+        <input asp-for="Dozent" class="form-control">
+    </div>
+
+    <div>
+        <label asp-for="AnzahlTeilnehmer" class="form-label"></label>
+        <input asp-for="AnzahlTeilnehmer" class="form-control" type="number" />
+    </div>
+
+    <div>
+        <label asp-for="DauerInTagen" class="form-label"></label>
+        <input asp-for="DauerInTagen" class="form-control" type="number">
+    </div>
+
+    <div>
+        <label asp-for="Inhalt" class="form-label"></label>
+        <textarea asp-for="Inhalt" class="form-control" rows="4"></textarea>
+    </div>
+
+    <div>
+        <label asp-for="Beschreibung" class="form-label"></label>
+        <textarea asp-for="Beschreibung" class="form-control"></textarea>
+    </div>
+
+
+
+    <button type="submit" class="butn btn-success">Kurs speichern</button>
+
+</form>

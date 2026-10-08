@@ -9,8 +9,7 @@
         public int DauerInTagen { get; set; } 
         public string? Inhalt { get; set; }
         public string? Beschreibung { get; set; }
-        public List<string> Lernziele { get; set; } = new() { };
-
+        public string Lernen { get; set; }
 
 
     }
