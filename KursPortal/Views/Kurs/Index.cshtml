@@ -1,64 +1,68 @@
-﻿
-@model List<Kurs>
+﻿@model List<Kurs>
+<head>
+    <link rel="stylesheet"
+          href="~/css/StyleKurs.css"
+          asp-append-version="true" />
 
-<div class="onlycode-courses">
+    <div class="onlycode-courses">
 
-    <h1 class="courses-heading">
-        > COURSE_DATABASE.EXE
-    </h1>
+        <h1 class="courses-heading">
+            > COURSE_DATABASE.EXE
+        </h1>
 
-    <p class="courses-description">
-        Choose your suffering. Learn to code.
-    </p>
+        <p class="courses-description">
+            Choose your suffering. Learn to code.
+        </p>
 
-    <a asp-controller="Kurs"
-       asp-action="Create"
-       class="btn btn-info mb-4">
-        + Neuen Kurs erstellen
-    </a>
+        <a asp-controller="Kurs"
+           asp-action="Create"
+           class="btn btn-info mb-4">
+            + Neuen Kurs erstellen
+        </a>
 
-    <div class="row g-4">
+        <div class="row g-4">
 
-        @foreach (var kurs in Model)
-        {
-            <div class="col-sm-6 col-lg-4">
+            @foreach (var kurs in Model)
+            {
+                <div class="col-sm-6 col-lg-4">
 
-                <div class="card h-100 text-center">
+                    <div class="card h-100 text-center">
 
-                    <div class="card-body">
+                        <div class="card-body">
 
-                        <p class="course-teacher">
-                            Dozent: @kurs.Dozent
-                        </p>
+                            <p class="course-teacher">
+                                Dozent: @kurs.Dozent
+                            </p>
 
-                        <h5 class="card-title">
-                            @kurs.KursName
-                        </h5>
+                            <h5 class="card-title">
+                                @kurs.KursName
+                            </h5>
 
-                        <p class="card-text">
-                            Dauer: @kurs.DauerInTagen Tage
-                        </p>
+                            <p class="card-text">
+                                Dauer: @kurs.DauerInTagen Tage
+                            </p>
 
-                        <a asp-controller="Kurs"
-                           asp-action="Detail"
-                           asp-route-id="@kurs.ID"
-                           class="btn btn-primary">
-                            [ DETAILS → ]
-                        </a>
+                            <a asp-controller="Kurs"
+                               asp-action="Detail"
+                               asp-route-id="@kurs.ID"
+                               class="btn btn-primary">
+                                [ DETAILS → ]
+                            </a>
 
-                    </div>
+                        </div>
 
-                    <div class="card-footer">
-                        Teilnehmeranzahl: @kurs.AnzahlTeilnehmer
+                        <div class="card-footer">
+                            Teilnehmeranzahl: @kurs.AnzahlTeilnehmer
+                        </div>
+
                     </div>
 
                 </div>
+            }
 
-            </div>
-        }
+        </div>
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-4">← Back to </a>
 
     </div>
-
-    <a asp-controller="Home"asp-action="Index"class="btn btn-secondary mt-4">← Back to </a>
-
-</div>
+</head>

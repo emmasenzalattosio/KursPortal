@@ -33,7 +33,6 @@
     border-top: 1px solid #174A38;
 }
 
-/* ===== ONLYCODE COURSE PAGE ===== */
 
 .onlycode-courses {
     padding: 40px 20px;
@@ -49,8 +48,10 @@
 }
 
 .courses-description {
-    color: #B5D8C9;
+    color: white;
     margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(0, 255, 179, 0.4);
+    
 }
 
 /* Course cards */

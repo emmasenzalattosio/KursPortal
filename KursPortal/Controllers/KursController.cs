@@ -16,15 +16,9 @@ namespace KursPortal.Controllers
 
         public IActionResult Index()
         {
-            var kurse = CTX.Kurse.Include(k => k.Lernziele).ToList();
+            List<Kurs> kurse = CTX.Kurse.Include(k => k.Lernziele).ToList();
             return View(kurse);
         }
-
-        //public IActionResult Detail(int id)
-        //{
-        //    var kurs = CTX.Kurse.FirstOrDefault(k => k.ID == id);
-        //    return View(kurs);
-        //}
         public IActionResult Detail(int id)
         {
             var kurs = CTX.Kurse.Include(k => k.Lernziele).FirstOrDefault(k => k.ID == id);
