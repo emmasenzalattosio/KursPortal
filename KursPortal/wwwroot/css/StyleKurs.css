@@ -32,3 +32,102 @@
     background-color: transparent;
     border-top: 1px solid #174A38;
 }
+
+/* ===== ONLYCODE COURSE PAGE ===== */
+
+.onlycode-courses {
+    padding: 40px 20px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/* Page title */
+.courses-heading {
+    color: #00FFB3;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(0, 255, 179, 0.4);
+}
+
+.courses-description {
+    color: #B5D8C9;
+    margin-bottom: 30px;
+}
+
+/* Course cards */
+.onlycode-courses .card {
+    background-color: rgba(2, 10, 6, 0.95);
+    color: #D9FFF0;
+    border: 1px solid #087F5B;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0, 255, 179, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+    /* Hover effect */
+    .onlycode-courses .card:hover {
+        transform: translateY(-5px);
+        border-color: #00FFB3;
+        box-shadow: 0 0 25px rgba(0, 255, 179, 0.3);
+    }
+
+/* Teacher */
+.onlycode-courses .course-teacher {
+    color: #83A99A;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+/* Course title */
+.onlycode-courses .card-title {
+    color: #00FFB3;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Duration */
+.onlycode-courses .card-text {
+    color: #D9FFF0;
+    margin-bottom: 25px;
+}
+
+/* Card footer */
+.onlycode-courses .card-footer {
+    background-color: rgba(0, 255, 179, 0.04);
+    color: #83A99A;
+    border-top: 1px solid #174A38;
+    padding: 15px;
+}
+
+
+
+.onlycode-courses .btn-primary,
+.onlycode-courses .btn-info {
+    background-color: transparent;
+    color: #00FFB3;
+    border: 1px solid #00FFB3;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+}
+
+    .onlycode-courses .btn-primary:hover,
+    .onlycode-courses .btn-info:hover {
+        background-color: #00FFB3;
+        color: #020504;
+        border-color: #00FFB3;
+        box-shadow: 0 0 15px rgba(0, 255, 179, 0.4);
+    }
+
+/* Back button */
+.onlycode-courses .btn-secondary {
+    background-color: rgba(2, 10, 6, 0.9);
+    color: #B5D8C9;
+    border: 1px solid #174A38;
+}
+
+    .onlycode-courses .btn-secondary:hover {
+        color: #00FFB3;
+        border-color: #00FFB3;
+        background-color: #07120D;
+    }
