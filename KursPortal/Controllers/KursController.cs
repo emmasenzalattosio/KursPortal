@@ -1,6 +1,6 @@
 ﻿using KursPortal.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 namespace KursPortal.Controllers
 {
     public class KursController : Controller
@@ -16,20 +16,21 @@ namespace KursPortal.Controllers
 
         public IActionResult Index()
         {
-            List<Kurs> kurse = CTX.Kurse.ToList();
+            var kurse = CTX.Kurse.Include(k => k.Lernziele).ToList();
             return View(kurse);
         }
 
-        public IActionResult Index2()
-        {
-            var liste = new List<string> { "Kurs", "Preis", "Inhalt", "Beschreibung" };
-            return View(liste);
-        }
-
+        //public IActionResult Detail(int id)
+        //{
+        //    var kurs = CTX.Kurse.FirstOrDefault(k => k.ID == id);
+        //    return View(kurs);
+        //}
         public IActionResult Detail(int id)
         {
-            var kurs = CTX.Kurse.FirstOrDefault(k => k.ID == id);
+            var kurs = CTX.Kurse.Include(k => k.Lernziele).FirstOrDefault(k => k.ID == id);
+
             return View(kurs);
+
         }
 
         [HttpGet]
@@ -89,11 +90,13 @@ namespace KursPortal.Controllers
         public IActionResult Entfern(int id)
         {
             var kursDB = CTX.Kurse.FirstOrDefault(k => k.ID == id);
-       
-                CTX.Kurse.Remove(kursDB);
-                CTX.SaveChanges();
-                return RedirectToAction("Index");
+
+            CTX.Kurse.Remove(kursDB);
+            CTX.SaveChanges();
+            return RedirectToAction("Index");
 
         }
+
+
     }
 }

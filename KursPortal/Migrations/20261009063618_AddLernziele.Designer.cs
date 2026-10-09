@@ -3,6 +3,7 @@ using KursPortal.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KursPortal.Migrations
 {
     [DbContext(typeof(KursPortalDbContext))]
-    partial class KursPortalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261009063618_AddLernziele")]
+    partial class AddLernziele
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,44 +53,6 @@ namespace KursPortal.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Kurse");
-                });
-
-            modelBuilder.Entity("KursPortal.Models.Lernziel", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("KursID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("KursID");
-
-                    b.ToTable("Lernziele");
-                });
-
-            modelBuilder.Entity("KursPortal.Models.Lernziel", b =>
-                {
-                    b.HasOne("KursPortal.Models.Kurs", "Kurs")
-                        .WithMany("Lernziele")
-                        .HasForeignKey("KursID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Kurs");
-                });
-
-            modelBuilder.Entity("KursPortal.Models.Kurs", b =>
-                {
-                    b.Navigation("Lernziele");
                 });
 #pragma warning restore 612, 618
         }

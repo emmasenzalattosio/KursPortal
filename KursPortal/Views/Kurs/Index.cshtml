@@ -1,31 +1,68 @@
-﻿@model List<Kurs>
+﻿
+@model List<Kurs>
 
+<div class="onlycode-courses">
 
-<a asp-controller="Kurs" asp-action="Create" class="btn btn-info mb-3">Neuen Kurs erstellen</a>
+    <h1 class="courses-heading">
+        > COURSE_DATABASE.EXE
+    </h1>
 
-<div class="row g-4">
-    @foreach (var k in Model)
-    {
-        <div class="col-sm-6 col-lg-4">
-            <div class="card h-100 text-center border-primary shadow-sm">
+    <p class="courses-description">
+        Choose your suffering. Learn to code.
+    </p>
 
-                <div class="card-header">
-                    Dozent: @k.Dozent
+    <a asp-controller="Kurs"
+       asp-action="Create"
+       class="btn btn-info mb-4">
+        + Neuen Kurs erstellen
+    </a>
+
+    <div class="row g-4">
+
+        @foreach (var kurs in Model)
+        {
+            <div class="col-sm-6 col-lg-4">
+
+                <div class="card h-100 text-center">
+
+                    <div class="card-body">
+
+                        <p class="course-teacher">
+                            Dozent: @kurs.Dozent
+                        </p>
+
+                        <h5 class="card-title">
+                            @kurs.KursName
+                        </h5>
+
+                        <p class="card-text">
+                            Dauer: @kurs.DauerInTagen Tage
+                        </p>
+
+                        <a asp-controller="Kurs"
+                           asp-action="Detail"
+                           asp-route-id="@kurs.ID"
+                           class="btn btn-primary">
+                            [ DETAILS → ]
+                        </a>
+
+                    </div>
+
+                    <div class="card-footer">
+                        Teilnehmeranzahl: @kurs.AnzahlTeilnehmer
+                    </div>
+
                 </div>
-
-                <div class="card-body">
-                    <h5 class="card-title">@k.KursName</h5>
-                    <p class="card-text">Dauer: @k.DauerInTagen Tage</p>
-                    <a asp-controller="Kurs" asp-action="Detail" asp-route-id="@k.ID" class="btn btn-primary">Details</a>
-                </div>
-
-                <div class="card-footer text-body-secondary">
-                    Teilnehmeranzahl: @k.AnzahlTeilnehmer
-                </div>
-
 
             </div>
-        </div>
-    }
-    <a type="button" class="btn btn-secondary m4" asp-controller="Home" asp-action="Index">Get back to HomePage</a>
+        }
+
+    </div>
+
+    <a asp-controller="Home"
+       asp-action="Index"
+       class="btn btn-secondary mt-4">
+        ← Back to Home
+    </a>
+
 </div>

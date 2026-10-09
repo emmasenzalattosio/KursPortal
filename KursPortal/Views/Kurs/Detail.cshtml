@@ -1,11 +1,21 @@
 ﻿@model Kurs
 
+
+        @* <div class="col-sm-6 col-lg-4"> *@
+<div class="card h-100 text-center border-primary shadow-sm">
+
+
+                <div class="card-body">
+
+<div class="card-header">
 <h1>@Model.KursName</h1>
+</div>
+
 
 <p>Dozent @Model.Dozent</p>
 <p>Anzahl Teilnehmer @Model.AnzahlTeilnehmer</p>
-
 <p>Duaer @Model.DauerInTagen</p>
+</div>
 
 <br />
 
@@ -17,10 +27,18 @@
 
 <p>@Model.Beschreibung</p>
 
-<p>Du lernst:</p>
 
 
+<h4>Du lernst: </h4>
 
+ <ul> 
+    @foreach(var lernziel in Model.Lernziele)
+    {
+        <li>@lernziel.Text</li>
+    }
+
+</ul>
+ 
 <div class="d-flex gap-2 align-items-center">
 <a asp-controller="Kurs" asp-action="Edit" asp-route-id=@Model.ID class="btn btn-warning">Bearbeiten</a>
 
